@@ -6,9 +6,9 @@
     <div  class = "form-group" [class.has-error]="firstName.invalid && firstName.touched" >
 
             <label class = "control-label" for ="firstNameId" >First Name </label>
-            <input id="firstNameId" type = "text" class= "form-control"
-            required
-            minlength="3"
+            <input id="firstNameId" type = "text"
+            pattern="^Q.*"
+            class= "form-control"
             name="firstname" 
             #firstName ="ngModel"
             [(ngModel)] = "model.firstName"
