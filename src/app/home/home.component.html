@@ -5,13 +5,13 @@
 <form #form = ngForm  novalidate   >
     <div  class = "form-group">
             <label for= "firstNameId"><h5>First Name</h5> </label>
-            <input id="firstNameId" type = "text" class= "form-control" required placeholder="First Name" name="firstname" #firstName
+            <input id="firstNameId" type = "text" class= "form-control" required placeholder="First Name" name="firstname" #firstName ="ngModel"
             [ngModel] = "model.firstName"
             (ngModelChange) ="firstNameToUpperCase($event)">
     </div>
     <h3>Classes</h3>
     <h4>
-        {{ firstName.className }}
+        {{ firstName.invalid }}
     </h4>
     <!-- <div class = "form-group">
             <label for= "lastNameId"><h5>Last Name</h5> </label>
