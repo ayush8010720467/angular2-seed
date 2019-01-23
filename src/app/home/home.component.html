@@ -2,7 +2,7 @@
 
 
 <h3>Employee form  </h3>
-<form #form = ngForm    >
+<form #form = "ngForm"  (submit) = "submitForm(form)" notvalidate >
     <div  class = "form-group" [class.has-error]="firstName.invalid && firstName.touched" >
 
             <label class = "control-label" for ="firstNameId" >First Name </label>
@@ -15,14 +15,20 @@
             [(ngModel)] = "model.firstName"
             >
         <div *ngIf="firstName.invalid && firstName.touched" class="allert alert-danger " >
-            Enter the name 
+            The First Name is Required 
         </div>
      </div>
     
-    <!-- <div class = "form-group">
-            <label for= "lastNameId"><h5>Last Name</h5> </label>
-            <input id="lastNameId" type = "text" class= "form-control" required placeholder="Last Name" name="lastname" 
+    <div class = "form-group"[class.has-error]="lastName.invalid && lastName.touched" >
+            <label class = "control-label" for= "lastNameId">Last Name </label>
+            <input id="lastNameId" type = "text" class= "form-control" required  name="lastname" 
+            #lastName = "ngModel"
+            pattern="...+"
+            required
             [(ngModel)] = "model.lastname" >
+            <div *ngIf="lastName.invalid && lastName.touched" class="allert alert-danger " >
+                    The last name is reqiuerd
+                </div>
     </div>
     
     <div class="checkbox">
@@ -65,19 +71,13 @@
             </option>
         
        </select>
-   </div> -->
-
-   <!-- <div class = "form-group">
-        <label for= "dateHiredId"><h5>Date Hired</h5> </label>
-        <input id="dateHiredId" type = "date" class= "form-control" required placeholder="First Name" name="firstname" ngModel >
-</div>
-  -->
-    
-    <button class="btn btn-primary" type="submit"
-    [disabled]="form.invalid">Ok</button>
+   </div> 
+  <button class="btn btn-primary" type="submit" 
+  [disabled]="form.invalid">Ok</button>
 
 </form>
 <!-- Model: {{model | json }}
 <br>
 Angular: {{form.value | json }} -->
+
 </div>
