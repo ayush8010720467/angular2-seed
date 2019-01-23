@@ -7,7 +7,8 @@
 
             <label class = "control-label" for ="firstNameId" >First Name </label>
             <input id="firstNameId" type = "text" class= "form-control"
-            required 
+            required
+            minlength="3"
             name="firstname" 
             #firstName ="ngModel"
             [(ngModel)] = "model.firstName"
