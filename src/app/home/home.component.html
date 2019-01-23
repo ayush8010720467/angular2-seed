@@ -50,11 +50,13 @@
             </label>
         </div>
    -->
-   <div class="form-group">
+   <div class="form-group" [class.has-error]="hasPrimaryLanguageError">
        <label><h5>Primary Language</h5></label>
-       <select class ="form-control"
-                >
-                <option default >Select a Language</option>
+    <select class ="form-control"
+       name="primaryLanguage"
+          [(ngModel)]="model.primaryLanguage"
+          (blur)="validatePrimaryLanguage()">
+                <option value="default" >Select a Language...</option>
             <option *ngFor="let lang of languages" >
                 {{ lang }}
             </option>
