@@ -20,13 +20,13 @@ export class HomeComponent {
     }
 
   }
-  validatePrimaryLanguage(event){
-    if( this.model.primaryLanguage == 'default'){
+  validatePrimaryLanguage(value){
+    if( value == 'default'){
         this.hasPrimaryLanguageError = true;
     }
     else{
       this.hasPrimaryLanguageError = false;
-      
+
     }
   }
 }
