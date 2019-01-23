@@ -11,7 +11,7 @@
             #firstName ="ngModel"
             [(ngModel)] = "model.firstName"
             >
-        <div *ngIf="firstName.invalid" class="allert alert-danger " >
+        <div *ngIf="firstName.invalid && firstName.dirty" class="allert alert-danger " >
             Enter the name 
         </div>
         </div>
