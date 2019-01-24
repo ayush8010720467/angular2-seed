@@ -16,7 +16,6 @@ import { Observable } from 'rxjs/Observable'
     }
     private extractLanguages(res:Response){
         let body = res.json() ;
-        console.log(body.fields);
         return body.fields||{};
     
     }
@@ -26,6 +25,7 @@ import { Observable } from 'rxjs/Observable'
     }
     getLanguages(): Observable<any>{
         return this.http.get("http://localhost:3100/get-languages")
+                        .delay(5000)
                         .map(this.extractLanguages)
                         .catch(this.handleError);
     }
