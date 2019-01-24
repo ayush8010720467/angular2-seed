@@ -10,11 +10,16 @@ import  { BrowserModule} from '@angular/platform-browser';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  languages = ['English','Spanish','Hindi','Others'];
+  languages = [];
   model = new Employee('','',false,'',"default");
   hasPrimaryLanguageError = false;
 
   constructor(private formPoster: FormPoster){
+    this.formPoster.getLanguages()
+        .subscribe(
+          data => this.languages = data.languages,
+          err => console.log('get error: ',err)
+        );
 
   }
   firstNameToUpperCase(value: string){

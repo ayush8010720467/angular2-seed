@@ -14,9 +14,20 @@ import { Observable } from 'rxjs/Observable'
         let body = res.json();
         return body.fields || { };
     }
+    private extractLanguages(res:Response){
+        let body = res.json() ;
+        console.log(body.fields);
+        return body.fields||{};
+    
+    }
     private handleError(error: any){
         console.log('post error: ',error);
         return Observable.throw(error.statusText);
+    }
+    getLanguages(): Observable<any>{
+        return this.http.get("http://localhost:3100/get-languages")
+                        .map(this.extractLanguages)
+                        .catch(this.handleError);
     }
     postEmployeeForm(employee: Employee):Observable<any>{
         let body = JSON.stringify(employee);
