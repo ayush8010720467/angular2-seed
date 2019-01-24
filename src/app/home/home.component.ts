@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { FormPoster } from '../services/form-poster.services';
 import { NgForm } from '@angular/forms';
+import  { BrowserModule} from '@angular/platform-browser';
 
 @Component({
   selector: 'home',
@@ -41,5 +42,9 @@ export class HomeComponent {
       return;
     }
     this.formPoster.postEmployeeForm(this.model)
+    .subscribe(
+      data => console.log('sucess: ',data),
+      err => console.log('error: ',err)
+    )
   }
 }

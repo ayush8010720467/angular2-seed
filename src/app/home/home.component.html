@@ -25,7 +25,7 @@
             #lastName = "ngModel"
             pattern="...+"
             required
-            [(ngModel)] = "model.lastname" >
+            [(ngModel)] = "model.lastName" >
             <div *ngIf="lastName.invalid && lastName.touched" class="allert alert-danger " >
                     The last name is reqiuerd
                 </div>
@@ -73,7 +73,7 @@
        </select>
    </div> 
   <button class="btn btn-primary" type="submit" 
-  [disabled]="form.invalid">Ok</button>
+  [disabled]="form.invalid && !(model.hasPrimaryLanguageError)">Ok</button>
 
 </form>
 <!-- Model: {{model | json }}
